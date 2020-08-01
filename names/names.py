@@ -18,9 +18,7 @@ duplicates = []  # Return the list of duplicates in this data structure
 for name in names_1:
     if name in names_2:
         duplicates.append(name)
-# duplicates = map(lambda name: names_1.remove(name) if name in names_1 else None, names_2)
 
-# print(duplicates)
 
 # set_1 = set()
 # for name_2 in names_2:
