@@ -5,12 +5,15 @@ class RingBuffer:
         self.pos = 0
 
     def append(self, item):
+        # check if the current array is less than capacity
         if len(self.arr) < self.capacity:
             self.arr.append(item)
+
+        # if the ring buffer is at capacity
         else:
-            # reassigns item at position
+            # reassigns item at the current position to the item added
             self.arr[self.pos] = item
-            #advances position
+            # advances position, but not past the capacity defined
             self.pos = (self.pos + 1) % self.capacity
 
     def get(self):

@@ -12,6 +12,7 @@ class Node:
     def set_next(self, new_next):
         self.next_node = new_next
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -39,15 +40,23 @@ class LinkedList:
         return False
 
     def reverse_list(self, node, prev):
+        # define node placeholders
         current = self.head
         prev = None
 
+        # check for empty
         if not current:
             return
 
+        # reverse loop
         while current:
+            # placeholder for current next node
             nxt = current.next_node
+            # set the real next node to the placeholder for previous node
             current.next_node = prev
+            # set the placeholder for previous node to the current node
             prev = current
+            # sets the current node to the next nonde
             current = nxt
+        # set the self.head node to the previos node placeholder
         self.head = prev
