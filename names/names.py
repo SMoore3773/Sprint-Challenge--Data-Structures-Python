@@ -1,5 +1,8 @@
 import time
 
+from bst import BSTNode
+
+
 start_time = time.time()
 
 f = open('names_1.txt', 'r')
@@ -22,10 +25,18 @@ duplicates = []  # Return the list of duplicates in this data structure
 #             duplicates.append(name_1)
 
 
-for name in names_1:
-    if name in names_2:
-        duplicates.append(name)
+# for name in names_1:
+#     if name in names_2:
+#         duplicates.append(name)
 
+namesTree = BSTNode('')
+
+for name in names_1:
+    namesTree.insert(name)
+
+for name2 in names_2:
+    if namesTree.contains(name2):
+        duplicates.append(name2)
 
 end_time = time.time()
 print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
